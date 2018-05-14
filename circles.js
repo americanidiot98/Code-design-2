@@ -35,10 +35,8 @@ function handleRefresh() { //gets data from url
  
 //outputs the data in HTML format
 function updateSales(sales) {
-    //var salesDiv = document.getElementById("sales");
-    //loop for outputting data
     var c = document.getElementById("canvas");
-     var ctx = c.getContext("2d");
+    var ctx = c.getContext("2d");
     
     function makeCircle(x,y,r,c){
         ctx.beginPath();
@@ -68,13 +66,6 @@ function updateSales(sales) {
         
         
         makeCircle(xPos, yPos ,dataFromJson, randC); //feed in the integer
-        
-        //creates the div on the fly
-        //var div = document.createElement("div");
-        //div.setAttribute("class", "saleItem");
-        //div.innerHTML = sale.name + " Text " + sale.sales;
-        //salesDiv.appendChild(div);
-        
         
         
         //order the output divs
