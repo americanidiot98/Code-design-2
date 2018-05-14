@@ -7,17 +7,17 @@
 var lastReportTime = 0;
 window.onload = init;
 
-// how often the data is retrieved
+// This is how often the data is retrieved.
 function init() {
     var interval = setInterval(handleRefresh, 500);
     handleRefresh();
 }
 
 
-//gets the data
-function handleRefresh() { //gets data from url
+//This gets the data.
+function handleRefresh() { //gets data from url.
     console.log("here");
-    var url = "http://gumball.wickedlysmart.com" + 
+    var url = "http://gumball.wickedlysmart.com" + //This is the link to the data set we are using.
         "?callback=updateSales" + 
         "&lastreporttime=" + lastReportTime +
         "&random=" + (new Date()).getTime();
@@ -33,43 +33,46 @@ function handleRefresh() { //gets data from url
     }
 }
  
-//outputs the data in HTML format
+// This outputs the data in HTML format.
 function updateSales(sales) {
     var c = document.getElementById("canvas");
     var ctx = c.getContext("2d");
     
-    function makeCircle(x,y,r,c){
-        ctx.beginPath();
-        ctx.lineWidth = 8;
-        ctx.arc(x,y,(r*15),0,2*Math.PI);
-        ctx.fillStyle = c;
-        ctx.fill();
-        ctx.closePath();
+    
+    
+    // This is the fucntion to out planets.
+    function makeCircle(x,y,r,c){ //This creates the circle.
+        ctx.beginPath();// This begins the path.
+        ctx.lineWidth = 8;// This is the line width of the outline of the planets (circles).
+        ctx.arc(x,y,(r*15),0,2*Math.PI); // This creates the points we would like the planets to start and finish at.
+        ctx.fillStyle = c;// This tells it to fill with colour.
+        ctx.fill();// This tells it to fill the planet (cirlce)
+        ctx.closePath();//This closes the path.
     }
     
     for (var i = 0; i < sales.length; i++) {
-        var sale = sales[i]; // sales array
+        var sale = sales[i]; //Sales array.
         
-        var dataFromJson = sale.sales; //grabbed copy of integer
+        var dataFromJson = sale.sales; //Grabbed copy of integer.
         var dataOutput = document.getElementById("data");
         dataOutput.innerHTML = dataFromJson;
         
         function getRandomArbitrary(min, max) {
                 return Math.random() * (max - min) + min;
-        }//new number each loop
+        }//New number each loop.
         
-        var xPos = getRandomArbitrary(100, 1800); //random x co-ordinate
-        var yPos = getRandomArbitrary(100, 750); //random y co-ordinate
+        var xPos = getRandomArbitrary(100, 1800); //Random x co-ordinate.
+        var yPos = getRandomArbitrary(100, 750); //Random y co-ordinate.
         
-        var colour = ["Tomato", "Orange", "DodgerBlue", "MediumSeaGreen", "SlateBlue", "Violet"];
+        var colour = ["Tomato", "Orange", "DodgerBlue", "MediumSeaGreen", "SlateBlue", "Violet"];//Changing the colours of our planets (circles).
         var randC= colour[Math.floor(Math.random() * colour.length)];
         
         
-        makeCircle(xPos, yPos ,dataFromJson, randC); //feed in the integer
+        makeCircle(xPos, yPos ,dataFromJson, randC); //Feed in the integer.
         
         
-        //order the output divs
-        if (salesDiv.childElementCount == 0) { //manipulates
+        //Order the output divs.
+        if (salesDiv.childElementCount == 0) { //Manipulates.
             salesDiv.appendChild(div);
         } else {
             salesDiv.insertBefore(div, salesDiv.firstChild);
