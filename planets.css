@@ -1,0 +1,8 @@
+body, p {
+    font-family: arial; 
+} <!-- This changes the font od the text on the screen -->
+
+#data {
+    color:red;
+    font-size: 26px;
+} <!-- This changes the colour and size of the data number -->
