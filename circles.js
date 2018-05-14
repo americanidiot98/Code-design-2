@@ -17,8 +17,8 @@ function init() {
 //gets the data
 function handleRefresh() { //gets data from url
     console.log("here");
-    var url = "http://gumball.wickedlysmart.com" + //url of feed
-        "?callback=updateSales" + //runs updateSales
+    var url = "http://gumball.wickedlysmart.com" + 
+        "?callback=updateSales" + 
         "&lastreporttime=" + lastReportTime +
         "&random=" + (new Date()).getTime();
     var newScriptElement = document.createElement("script");
@@ -42,10 +42,11 @@ function updateSales(sales) {
     
     function makeCircle(x,y,r,c){
         ctx.beginPath();
-        ctx.arc(x,y,(r*5),0,2*Math.PI);
-        ctx.fillStyle = c;
+        ctx.lineWidth = 8;
+        ctx.arc(x,y,(r*15),0,2*Math.PI);
+        ctx.strokeStyle = c;
         ctx.stroke();
-        ctx.fill();
+        ctx.closePath();
     }
     
     for (var i = 0; i < sales.length; i++) {
@@ -59,10 +60,10 @@ function updateSales(sales) {
                 return Math.random() * (max - min) + min;
         }//new number each loop
         
-        var xPos = getRandomArbitrary(10, 200); //random x co-ordinate
-        var yPos = getRandomArbitrary(20, 170); //random y co-ordinate
+        var xPos = getRandomArbitrary(100, 1800); //random x co-ordinate
+        var yPos = getRandomArbitrary(100, 750); //random y co-ordinate
         
-        var colour = ["blue", "pink", "green", "purple", "yellow", "orange"];
+        var colour = ["Tomato", "Orange", "DodgerBlue", "MediumSeaGreen", "SlateBlue", "Violet"];
         var randC= colour[Math.floor(Math.random() * colour.length)];
         
         
