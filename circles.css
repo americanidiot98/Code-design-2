@@ -1,0 +1,8 @@
+body, p {
+    font-family: arial;
+}
+
+#data {
+    color:red;
+    font-size: 26px;
+}

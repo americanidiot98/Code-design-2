@@ -9,7 +9,7 @@ window.onload = init;
 
 // how often the data is retrieved
 function init() {
-    var interval = setInterval(handleRefresh, 1000);
+    var interval = setInterval(handleRefresh, 500);
     handleRefresh();
 }
 
@@ -44,8 +44,8 @@ function updateSales(sales) {
         ctx.beginPath();
         ctx.lineWidth = 8;
         ctx.arc(x,y,(r*15),0,2*Math.PI);
-        ctx.strokeStyle = c;
-        ctx.stroke();
+        ctx.fillStyle = c;
+        ctx.fill();
         ctx.closePath();
     }
     
